@@ -1,6 +1,8 @@
 const home = require('../templates/Home.handlebars')
+const navUi = require('../nav/ui.js')
 
 const init = () => {
+  navUi.loadNavPublic()
   loadHome()
 }
 
