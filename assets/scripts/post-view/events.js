@@ -13,7 +13,7 @@ const onClickPost = () => {
 }
 
 const addHandlers = event => {
-  $('.post').on('click', onClickPost)
+  $('#content').on('click', '.post', onClickPost)
 }
 
 module.exports = {
