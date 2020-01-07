@@ -1,5 +1,6 @@
 'use strict'
 const store = require('../store')
+const navUi = require('../nav/ui.js')
 
 const onSuccess = message => {
   $('#message')
@@ -32,6 +33,7 @@ const onSignInSuccess = responseData => {
   // timeout
   $('.after-auth').show()
   $('.before-auth').hide()
+  navUi.loadNavAuth()
 }
 
 const onSignInFailure = () => {
