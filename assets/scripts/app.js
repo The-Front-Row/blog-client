@@ -1,11 +1,11 @@
 'use strict'
-const commonUi = require('./common/ui')
+const commonEvents = require('./common/events')
 const authEvents = require('./auth/events')
 const postViewEvents = require('./post-view/events')
 const postFormEvents = require('./post-form/events')
 
 $(() => {
-  commonUi.init()
+  commonEvents.init()
   authEvents.addHandlers()
   postViewEvents.addHandlers()
   postFormEvents.addHandlers()
