@@ -4,6 +4,11 @@ const api = require('./api.js')
 const ui = require('./ui.js')
 const getFormFields = require('../../../lib/get-form-fields.js')
 
+const autologin = event => {
+  console.log('hewwo??')
+  event.preventDefault()
+}
+
 const onSignUp = event => {
   // console.log('hewwo??')
   event.preventDefault()
@@ -51,6 +56,8 @@ const addHandlers = event => {
   $('#content').on('submit', '#signin', onSignIn)
   $('#content').on('submit', '#changepw', onChangePassword)
   $('#content').on('submit', '#signout', onSignOut)
+  $('#content').on('submit', '#autologin', autologin)
+  // ^^for development purposes, remove later
 }
 
 module.exports = {

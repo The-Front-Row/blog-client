@@ -2,7 +2,20 @@
 const config = require('../config')
 const store = require('../store')
 
+// for development purposes, remove this later
+const autologin = () => {
+  return $.ajax({
+    url: config.apiUrl + '/sign-in',
+    method: 'POST',
+    data: {
+      email: 'h@cker',
+      password: 'login'
+    }
+  })
+}
+
 const signup = formData => {
+  console.log(formData)
   return $.ajax({
     url: config.apiUrl + '/sign-up',
     method: 'POST',
@@ -41,6 +54,7 @@ const signout = () => {
 }
 
 module.exports = {
+  autologin,
   signup,
   signin,
   changepw,
