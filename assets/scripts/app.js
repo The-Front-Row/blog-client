@@ -1,12 +1,14 @@
 'use strict'
-const commonEvents = require('./common/events')
 const authEvents = require('./auth/events')
-const postViewEvents = require('./post-view/events')
+const commonEvents = require('./common/events')
+const navEvents = require('./nav/events')
 const postFormEvents = require('./post-form/events')
+const postViewEvents = require('./post-view/events')
 
 $(() => {
-  commonEvents.init()
   authEvents.addHandlers()
-  postViewEvents.addHandlers()
+  commonEvents.init()
+  navEvents.addHandlers()
   postFormEvents.addHandlers()
+  postViewEvents.addHandlers()
 })
