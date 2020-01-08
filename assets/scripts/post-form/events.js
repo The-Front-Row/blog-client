@@ -13,7 +13,7 @@ const onClickPostForm = () => {
 }
 
 const addHandlers = event => {
-  $('#new-post').on('click', onClickPostForm)
+  $('#content').on('click', '#new-post', onClickPostForm)
 }
 
 module.exports = {
