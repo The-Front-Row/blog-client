@@ -32,14 +32,12 @@ const onUpdatePost = event => {
 
 const onCreateComment = e => {
   e.preventDefault()
-  console.log('Form was clicked')
-  // TODO: uncomment the below when create comment form is ready to be tested.
-  // const form = e.target;
-  // const createCommentData = getFormFields(form);
-  // api
-  //   .add(createCommentData)
-  //   .then(ui.addCommentSuccess)
-  //   .catch();
+  const form = e.target
+  const createCommentData = getFormFields(form)
+  api
+    .addComment(createCommentData)
+    .then(ui.addCommentSuccess)
+    .catch(err => console.log(err))
 }
 
 const addHandlers = event => {

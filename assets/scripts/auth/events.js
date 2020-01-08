@@ -5,11 +5,12 @@ const ui = require('./ui.js')
 const getFormFields = require('../../../lib/get-form-fields.js')
 
 const autologin = event => {
-  console.log('hewwo??')
-  const cheatcodes = {credentials: {
-    email: 'h@cker',
-    password: 'login'
-  }}
+  const cheatcodes = {
+    credentials: {
+      email: 'h@cker',
+      password: 'login'
+    }
+  }
   event.preventDefault()
   api
     .signin(cheatcodes)
@@ -19,7 +20,6 @@ const autologin = event => {
 // ^^^ for development purposes, remove tag before flight
 
 const onSignUp = event => {
-  // console.log('hewwo??')
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
@@ -30,7 +30,6 @@ const onSignUp = event => {
 }
 
 const onSignIn = event => {
-  // console.log('hewwo??')
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)

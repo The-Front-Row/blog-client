@@ -1,7 +1,6 @@
 const postView = require('../templates/PostView.handlebars')
 
 const loadPostView = data => {
-  console.log(data)
   const postViewHtml = postView({ data })
   $('#content').html(postViewHtml)
 }
