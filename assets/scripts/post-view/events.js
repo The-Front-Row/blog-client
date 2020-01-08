@@ -26,7 +26,7 @@ const onCreateComment = e => {
 
 const addHandlers = event => {
   $('#content').on('click', '.post', onClickPost),
-    $('#content').on('submit', '#new-comment', onCreateComment)
+  $('#content').on('submit', '#new-comment', onCreateComment)
 }
 
 module.exports = {
