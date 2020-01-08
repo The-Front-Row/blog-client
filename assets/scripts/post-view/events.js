@@ -2,15 +2,11 @@ const api = require('./api')
 const ui = require('./ui')
 
 const onClickPost = event => {
-  // ui.loadPostView()
-  const id = $(event.target).data('id')
-  // console.log(id)
+  const id = $(event.target).closest('div.post').data('id')
   api
     .getPost(id)
     .then(res => ui.loadPostView(res))
-  //   .catch((err) =>
-  //     console.warn(err)
-  // )
+    .catch((err) => console.warn(err))
 }
 
 const onCreateComment = e => {
