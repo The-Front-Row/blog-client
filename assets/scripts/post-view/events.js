@@ -1,15 +1,12 @@
 const api = require('./api')
 const ui = require('./ui')
 
-const onClickPost = () => {
-  ui.loadPostView()
-  // TODO: placeholder for GETing a single post
-  // api
-  //   .getUserHome()
-  //   .then(ui.getUserHomeSuccess)
-  //   .catch((err) =>
-  //     console.warn(err)
-  //   );
+const onClickPost = event => {
+  const id = $(event.target).closest('div.post').data('id')
+  api
+    .getPost(id)
+    .then(res => ui.loadPostView(res))
+    .catch((err) => console.warn(err))
 }
 
 const onCreateComment = e => {
