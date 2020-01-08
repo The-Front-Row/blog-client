@@ -6,8 +6,17 @@ const getFormFields = require('../../../lib/get-form-fields.js')
 
 const autologin = event => {
   console.log('hewwo??')
+  const cheatcodes = {credentials: {
+    email: 'h@cker',
+    password: 'login'
+  }}
   event.preventDefault()
+  api
+    .signin(cheatcodes)
+    .then(ui.onSignInSuccess)
+    .catch(ui.onSignInFailure)
 }
+// ^^^ for development purposes, remove tag before flight
 
 const onSignUp = event => {
   // console.log('hewwo??')
