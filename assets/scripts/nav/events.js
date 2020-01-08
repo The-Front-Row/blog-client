@@ -1,4 +1,11 @@
-const api = require('./api')
-const ui = require('./ui')
+// const api = require('./api')
+const events = require('../common/events.js')
+// const ui = require('./ui')
 
-module.exports = {}
+const addHandlers = event => {
+  $('#nav').on('click', '#back-button', events.onLoadUserHome)
+}
+
+module.exports = {
+  addHandlers
+}
