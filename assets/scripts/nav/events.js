@@ -1,9 +1,9 @@
 // const api = require('./api')
-const events = require('../common/events.js')
+const commonEvents = require('../common/events.js')
 // const ui = require('./ui')
 
 const addHandlers = event => {
-  $('#nav').on('click', '#back-button', events.onLoadUserHome)
+  $('#nav').on('click', '#back-button', commonEvents.onLoadUserHome)
 }
 
 module.exports = {
