@@ -4,6 +4,7 @@
   <button class="btn btn-success">email: h@cker pw: login</button>
 </form>
 <!-- ^^^ for dev purposes -->
+{{ log posts}}
 <form id="signup">
   <input name="credentials[email]" type="email" placeholder="email">
   <input name="credentials[password]" type="password" placeholder="password">
@@ -24,16 +25,9 @@
   <button class="btn">SIGN OUT</button>
 </form>
 <button id="new-post" class="btn">NEW POST</button>
-{{!-- TODO: replace this with list of posts once API is set --}}
-<div class="post">
-  I am post 1
+
+{{#each posts as |post|}}
+<div data-id="{{post._id}}" class="post">
+  <h2>{{limit post.title 25}}</h2>
 </div>
-<div class="post">
-  I am post 2
-</div>
-<div class="post">
-  I am post 3
-</div>
-<div class="post">
-  I am post 4
-</div>
+{{/each}}
