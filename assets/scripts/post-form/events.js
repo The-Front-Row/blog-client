@@ -14,7 +14,6 @@ const onClickPostForm = () => {
 }
 
 const onCreatePost = event => {
-  console.log('hewwwwwo??')
   event.preventDefault()
   const form = event.target
   const createPostData = getFormFields(form)

@@ -1,28 +1,34 @@
 <!-- <h1>Post View Component</h1> -->
+<div data-id='{{data.post._id}}' class='post-container'>
+  <form id="update-post">
+    <input name="post[title]" type="text" placeholder="Post Title">
+    <textarea name="post[content]" placeholder="Comment Body" rows="5" cols="32"></textarea>
+    <button class="btn">Update post</button>
+  </form>
+  <h1>{{ data.post.title }}</h1>
+  <p>{{ data.post.content }}</p>
+  {{!-- TODO: refactor opportunity - make Comments and CommentsList its own components/handlebars  --}}
+  <h1>Comments</h1>
+  <h2>New Comment Form</h2>
+  <form id="new-comment">
+    <textarea name="comment[content]" placeholder="Comment Body" id="new-comment-body" rows="5" cols="32"></textarea>
+    <button class="btn">Create new comment</button>
+  </form>
+  <div class="comment">
+    I am comment 1
+  </div>
+  <div class="comment">
+    I am comment 2
+  </div>
+  <div class="comment">
+    I am comment 3
+  </div>
+  <div class="comment">
+    I am comment 4
+  </div>
 
-<h1>{{ data.post.title }}</h1>
-<p>{{ data.post.content }}</p>
+  <div class="comment">
+    I am comment 5
+  </div>
 
-{{!-- TODO: refactor opportunity - make Comments and CommentsList its own components/handlebars  --}}
-<h1>Comments</h1>
-<h2>New Comment Form</h2>
-<form id="new-comment">
-  <textarea name="comment[content]" placeholder="Comment Body" id="new-comment-body" rows="5" cols="32"></textarea>
-  <button class="btn">Create new comment</button>
-</form>
-<div class="comment">
-  I am comment 1
-</div>
-<div class="comment">
-  I am comment 2
-</div>
-<div class="comment">
-  I am comment 3
-</div>
-<div class="comment">
-  I am comment 4
-</div>
-
-<div class="comment">
-  I am comment 5
 </div>

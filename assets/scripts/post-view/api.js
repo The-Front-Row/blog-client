@@ -8,7 +8,7 @@ const getPost = postID => {
   })
 }
 
-const add = formData => {
+const addComment = formData => {
   return $.ajax({
     url: config.apiUrl + '/comments',
     method: 'POST',
@@ -19,7 +19,19 @@ const add = formData => {
   })
 }
 
+const updatePost = (id, formData) => {
+  return $.ajax({
+    url: config.apiUrl + '/posts/' + id,
+    method: 'PATCH',
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    },
+    data: formData
+  })
+}
+
 module.exports = {
   getPost,
-  add
+  addComment,
+  updatePost
 }
