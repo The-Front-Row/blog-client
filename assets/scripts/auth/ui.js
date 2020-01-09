@@ -42,6 +42,7 @@ const onSignInFailure = () => {
 }
 
 const onChangePasswordSuccess = () => {
+  commonEvents.onLoadUserHome()
   onSuccess('you have changed your password')
 }
 
