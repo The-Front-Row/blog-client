@@ -83,7 +83,26 @@ const onDeletePost = event => {
   const postId = $(event.target)
     .closest('div.post-container')
     .data('id')
-  api.deletePost(postId).then(() => commonEvents.onLoadUserHome())
+  api
+    .deletePost(postId)
+    .then(() => commonEvents.onLoadUserHome())
+    .catch(err => console.log(error))
+}
+
+const onDeleteComment = event => {
+  event.preventDefault()
+  const postId = $(event.target)
+    .closest('div.post-container')
+    .data('id')
+
+  const commentId = $(event.target)
+    .closest('div.comment-container')
+    .data('id')
+  api
+    .deleteComment(postId, commentId)
+    .then(() => api.getPost(postId))
+    .then(res => ui.loadPostView(res))
+    .catch(err => console.warn(err))
 }
 
 const addHandlers = event => {
@@ -92,6 +111,7 @@ const addHandlers = event => {
   $('#content').on('submit', '#update-post', onUpdatePost)
   $('#content').on('submit', '#new-comment', onCreateComment)
   $('#content').on('submit', '.update-comment', onUpdateComment)
+  $('#content').on('click', '.delete-comment', onDeleteComment)
 }
 
 module.exports = {
