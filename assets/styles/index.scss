@@ -44,10 +44,20 @@ body {
   padding: 24px;
 }
 
+.comment-container {
+  padding-top: 24px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .btn {
   border-radius: 3px;
   border-color: lightblue;
 }
+
 .btn.btn-nav-secondary {
   border-color: white;
 }

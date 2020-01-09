@@ -22,27 +22,29 @@ const onSignInSuccess = responseData => {
   commonEvents.onLoadUserHome()
   window.setTimeout(() => {
     $('#message').html('Successfully signed in')
-  }, 500)
+  }, 200)
 }
 
 const onSignInFailure = () => {
-  onFailure('something goofed')
+  $('form').trigger('reset')
+  commonUi.notification('Error signing in', 'failure')
 }
 
 const onChangePasswordSuccess = () => {
+  $('form').trigger('reset')
   commonEvents.onLoadUserHome()
-  commonUi.notification('Successfully changed password', 'success')
+  window.setTimeout(() => {
+    $('#message').html('Successfully changed password')
+  }, 200)
 }
 
 const onChangePasswordFailure = () => {
+  $('form').trigger('reset')
   commonUi.notification('Error changing password', 'failure')
 }
 
 const onSignoutSuccess = responseData => {
   store.user = store
-  onSuccess('signed out')
-  $('.before-auth').show()
-  $('.after-auth').hide()
   navUi.loadNavPublic()
   commonEvents.init()
 }

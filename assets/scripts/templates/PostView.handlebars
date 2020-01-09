@@ -1,8 +1,8 @@
 <div data-id='{{data.post._id}}' class='post-container'>
   {{#if data.post.editable}}
-  <form id="update-post">
-    <input name="post[title]" type="text" placeholder="Post Title">
-    <textarea name="post[content]" placeholder="Post Body" rows="5" cols="32"></textarea>
+  <form class='form-container' id="update-post">
+    <input name="post[title]" type="text" placeholder="Post Title" required>
+    <textarea name="post[content]" placeholder="Post Body" rows="5" cols="32" required></textarea>
     <button class="btn">Update post</button>
   </form>
   <button id="delete-btn" class='btn btn-danger'>Delete this post</button>
@@ -14,21 +14,22 @@
   <h1>Comments</h1>
   {{#if data.post.signedIn}}
   <form id="new-comment">
-    <textarea name="comment[content]" placeholder="Comment Body" id="new-comment-body" rows="5" cols="32"></textarea>
+    <textarea name="comment[content]" placeholder="Comment Body" id="new-comment-body" rows="5" cols="32"
+      required></textarea>
     <button class="btn">Create new comment</button>
   </form>
   {{/if}}
   {{#each data.post.comments as |comment|}}
   <div data-id='{{comment._id}}' data-author='{{comment.author}}' class="comment-container">
-    {{comment.content}}
+    <p><b>{{comment.author}}</b></p>
+    <p>{{comment.content}}</p>
     {{#if comment.editable}}
     <form class="update-comment">
-      <textarea name="comment[content]" placeholder="Comment Body" rows="5" cols="32"></textarea>
+      <textarea name="comment[content]" placeholder="Comment Body" rows="5" cols="32" required></textarea>
       <button class="btn">Update comment</button>
     </form>
     <button class="delete-comment">Delete this comment</button>
     {{/if}}
-
   </div>
   {{else}}
   No comments yet

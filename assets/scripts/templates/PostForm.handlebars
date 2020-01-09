@@ -1,8 +1,9 @@
-<h1>make your new post</h1>
-<form id="new-post-form">
-  <h3>Post Title</h3>
-  <input name="post[title]" type="text" placeholder="Post Title">
-  <h3>Post Body</h3>
-  <textarea name="post[content]" placeholder="Post Body" id="new-post-body" rows="5" cols="32"></textarea>
+<h1>Make your new post</h1>
+<form class='form-container' id="new-post-form">
+  <label for="title">Title</label>
+  <input name="post[title]" type="text" placeholder="enter your title here" required>
+  <label for="body">Content</label>
+  <textarea name="post[content]" placeholder="enter your body here" id="new-post-body" rows="5" cols="32"
+    required></textarea>
   <button class="btn">SUBMIT</button>
 </form>
