@@ -24,7 +24,7 @@ const onCreatePost = event => {
 }
 
 const addHandlers = event => {
-  $('#content').on('click', '#new-post', onClickPostForm)
+  $('#nav').on('click', '#new-post', onClickPostForm)
   $('#content').on('submit', '#new-post-form', onCreatePost)
 }
 
