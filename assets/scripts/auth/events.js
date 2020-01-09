@@ -4,22 +4,6 @@ const api = require('./api.js')
 const ui = require('./ui.js')
 const getFormFields = require('../../../lib/get-form-fields.js')
 
-const autologin = event => {
-  const cheatcodes = {
-    credentials: {
-      email: 'auto@login',
-      username: 'H4X0R',
-      password: 'login'
-    }
-  }
-  event.preventDefault()
-  api
-    .signin(cheatcodes)
-    .then(ui.onSignInSuccess)
-    .catch(ui.onSignInFailure)
-}
-// ^^^ for development purposes, remove tag before flight
-
 const onSignUp = event => {
   event.preventDefault()
   const form = event.target
@@ -66,8 +50,6 @@ const addHandlers = event => {
   $('#content').on('submit', '#changepw', onChangePassword)
   $('#content').on('submit', '#signout', onSignOut)
   $('#nav').on('click', '#signout', onSignOut)
-  $('#content').on('submit', '#autologin', autologin)
-  // ^^for development purposes, remove later
 }
 
 module.exports = {

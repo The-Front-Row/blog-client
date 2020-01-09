@@ -1,15 +1,14 @@
-<div id="message"></div>
-<h1>Blog Tittle</h1>
-<form id="autologin">
-  <button class="btn btn-success">email: h@cker pw: login</button>
-</form>
-<!-- ^^^ for dev purposes -->
-{{ log posts}}
-
-<button id="new-post" class="btn">NEW POST</button>
-
+<div id='message'></div>
 {{#each posts as |post|}}
 <div data-id="{{post._id}}" class="post">
-  <h2>{{limit post.title 25}}</h2>
+  <h2 class='post-title'>{{limit post.title 25}}</h2>
+  <p class='post-text'>{{limit post.content 240}}</p>
+  <h3 class='post-author'>Posted by
+    {{#if post.owner.username}}
+    {{post.owner.username}}
+    {{else}}
+    anonymous
+    {{/if}}
+  </h3>
 </div>
 {{/each}}

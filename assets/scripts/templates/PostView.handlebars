@@ -5,7 +5,7 @@
     <textarea name="post[content]" placeholder="Post Body" rows="5" cols="32"></textarea>
     <button class="btn">Update post</button>
   </form>
-  <button id="delete-btn">Delete this post</button>
+  <button id="delete-btn" class='btn btn-danger'>Delete this post</button>
   {{/if}}
 
   <h1>{{ data.post.title }}</h1>
@@ -13,7 +13,6 @@
   {{!-- TODO: refactor opportunity - make Comments and CommentsList its own components/handlebars  --}}
   <h1>Comments</h1>
   {{#if data.post.signedIn}}
-  <h2>New Comment Form</h2>
   <form id="new-comment">
     <textarea name="comment[content]" placeholder="Comment Body" id="new-comment-body" rows="5" cols="32"></textarea>
     <button class="btn">Create new comment</button>
