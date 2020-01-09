@@ -21,7 +21,7 @@ const onSignInSuccess = responseData => {
   navUi.loadNavAuth()
   commonEvents.onLoadUserHome()
   window.setTimeout(() => {
-    $('#message').html('Successfully signed in')
+    commonUi.notification('Successfully signed in', 'success')
   }, 200)
 }
 
@@ -34,7 +34,7 @@ const onChangePasswordSuccess = () => {
   $('form').trigger('reset')
   commonEvents.onLoadUserHome()
   window.setTimeout(() => {
-    $('#message').html('Successfully changed password')
+    commonUi.notification('Successfully changed password', 'success')
   }, 200)
 }
 
@@ -47,6 +47,9 @@ const onSignoutSuccess = responseData => {
   store.user = store
   navUi.loadNavPublic()
   commonEvents.init()
+  window.setTimeout(() => {
+    commonUi.notification('Successfully signed out', 'success')
+  }, 200)
 }
 
 const onSignoutFailure = () => {

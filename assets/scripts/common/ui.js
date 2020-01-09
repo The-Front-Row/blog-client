@@ -18,7 +18,7 @@ const notification = (text, type = null) => {
   $('#toast').toast('show')
   window.setTimeout(() => {
     $('#toast').remove()
-  }, 3000)
+  }, 1500)
 }
 
 module.exports = {
