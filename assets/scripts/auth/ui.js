@@ -2,40 +2,27 @@
 const store = require('../store')
 const navUi = require('../nav/ui.js')
 const commonEvents = require('../common/events.js')
-
-const onSuccess = message => {
-  $('#message')
-    .removeClass('failure')
-    .addClass('success')
-    .text(message)
-  $('input').val('')
-}
-
-const onFailure = message => {
-  $('#message')
-    .removeClass('success')
-    .addClass('failure')
-    .text(message)
-  $('input').val('')
-}
+const commonUi = require('../common/ui')
 
 const onSignUpSuccess = () => {
-  onSuccess('signed up')
-  // timeout
+  $('form').trigger('reset')
+  commonUi.notification('Successfully created account', 'success')
 }
 
 const onSignUpFailure = () => {
-  onFailure('something goofed')
+  $('form').trigger('reset')
+  commonUi.notification('Error creating account', 'failure')
 }
 
 const onSignInSuccess = responseData => {
+  $('form').trigger('reset')
   store.user = responseData.user
-  onSuccess('signed in')
-  // timeout
-  $('.after-auth').show()
-  $('.before-auth').hide()
+
   navUi.loadNavAuth()
   commonEvents.onLoadUserHome()
+  window.setTimeout(() => {
+    $('#message').html('Successfully signed in')
+  }, 500)
 }
 
 const onSignInFailure = () => {
@@ -44,11 +31,11 @@ const onSignInFailure = () => {
 
 const onChangePasswordSuccess = () => {
   commonEvents.onLoadUserHome()
-  onSuccess('you have changed your password')
+  commonUi.notification('Successfully changed password', 'success')
 }
 
 const onChangePasswordFailure = () => {
-  onFailure('you have not changed your password')
+  commonUi.notification('Error changing password', 'failure')
 }
 
 const onSignoutSuccess = responseData => {
