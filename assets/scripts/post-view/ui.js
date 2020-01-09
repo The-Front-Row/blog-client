@@ -18,12 +18,17 @@ const loadPostView = data => {
       // create a new key called 'editable' on the comment object
       comment.editable = commentEditable
     })
+
+    // also create a new key 'signedIn' which tells us we are an authorized user
+    data.post.signedIn = true
+
     // if the user is not signed in - automatically set post and comments editable to false
   } else {
     data.post.editable = false
     data.post.comments.map(comment => {
       comment.editable = false
     })
+    data.post.signedIn = false
   }
 
   const postViewHtml = postView({ data })
