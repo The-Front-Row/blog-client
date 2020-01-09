@@ -70,15 +70,15 @@ const onUpdateComment = e => {
   updateCommentData.comment.post = postId
   // send it to the API and then reload the post page. If extra time,
   // see if we can refresh just the comments section
+  // TODO: do we still need to insert postId into updateCommentData? They'll have it via params, so try removing this if it causes issues
   api
-    .updateComment(commentId, updateCommentData)
+    .updateComment(postId, commentId, updateCommentData)
     .then(() => api.getPost(postId))
     .then(res => ui.loadPostView(res))
     .catch(err => console.log(err))
 }
 
 const onDeletePost = event => {
-  console.log('hewwo??')
   event.preventDefault()
   const postId = $(event.target)
     .closest('div.post-container')
