@@ -1,6 +1,7 @@
 const api = require('./api')
 const ui = require('./ui')
 const getFormFields = require('../../../lib/get-form-fields.js')
+const commonEvents = require('../common/events')
 
 const onClickPost = event => {
   // grab the post id
@@ -76,8 +77,18 @@ const onUpdateComment = e => {
     .catch(err => console.log(err))
 }
 
+const onDeletePost = event => {
+  console.log('hewwo??')
+  event.preventDefault()
+  const postId = $(event.target)
+    .closest('div.post-container')
+    .data('id')
+  api.deletePost(postId).then(() => commonEvents.onLoadUserHome())
+}
+
 const addHandlers = event => {
   $('#content').on('click', '.post', onClickPost)
+  $('#content').on('click', '#delete-btn', onDeletePost)
   $('#content').on('submit', '#update-post', onUpdatePost)
   $('#content').on('submit', '#new-comment', onCreateComment)
   $('#content').on('submit', '.update-comment', onUpdateComment)
