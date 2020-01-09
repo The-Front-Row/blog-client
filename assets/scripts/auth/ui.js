@@ -35,6 +35,7 @@ const onSignInSuccess = responseData => {
   $('.after-auth').show()
   $('.before-auth').hide()
   navUi.loadNavAuth()
+  commonEvents.onLoadUserHome()
 }
 
 const onSignInFailure = () => {
