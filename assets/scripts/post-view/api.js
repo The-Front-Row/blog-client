@@ -40,9 +40,9 @@ const deletePost = id => {
   })
 }
 
-const updateComment = (id, formData) => {
+const updateComment = (postId, commentId, formData) => {
   return $.ajax({
-    url: config.apiUrl + '/comments/' + id,
+    url: config.apiUrl + '/comments/' + postId + '/' + commentId,
     method: 'PATCH',
     headers: {
       Authorization: `Token token=${store.user.token}`
