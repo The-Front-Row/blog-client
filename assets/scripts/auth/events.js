@@ -7,7 +7,8 @@ const getFormFields = require('../../../lib/get-form-fields.js')
 const autologin = event => {
   const cheatcodes = {
     credentials: {
-      email: 'h@cker',
+      email: 'auto@login',
+      username: 'H4X0R',
       password: 'login'
     }
   }
