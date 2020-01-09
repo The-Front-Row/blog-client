@@ -30,8 +30,20 @@ const updatePost = (id, formData) => {
   })
 }
 
+const updateComment = (id, formData) => {
+  return $.ajax({
+    url: config.apiUrl + '/comments/' + id,
+    method: 'PATCH',
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    },
+    data: formData
+  })
+}
+
 module.exports = {
   getPost,
   addComment,
-  updatePost
+  updatePost,
+  updateComment
 }

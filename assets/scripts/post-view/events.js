@@ -52,10 +52,35 @@ const onCreateComment = e => {
     .catch(err => console.log(err))
 }
 
+const onUpdateComment = e => {
+  e.preventDefault()
+  // grab the form data
+  const form = e.target
+  const updateCommentData = getFormFields(form)
+  // grab the comment id
+  const commentId = $(event.target)
+    .closest('div.comment-container')
+    .data('id')
+  // grab the post id
+  const postId = $(event.target)
+    .closest('div.post-container')
+    .data('id')
+  // add the post id to the form data
+  updateCommentData.comment.post = postId
+  // send it to the API and then reload the post page. If extra time,
+  // see if we can refresh just the comments section
+  api
+    .updateComment(commentId, updateCommentData)
+    .then(() => api.getPost(postId))
+    .then(res => ui.loadPostView(res))
+    .catch(err => console.log(err))
+}
+
 const addHandlers = event => {
   $('#content').on('click', '.post', onClickPost)
   $('#content').on('submit', '#update-post', onUpdatePost)
   $('#content').on('submit', '#new-comment', onCreateComment)
+  $('#content').on('submit', '.update-comment', onUpdateComment)
 }
 
 module.exports = {
