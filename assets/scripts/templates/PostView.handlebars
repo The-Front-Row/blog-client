@@ -1,8 +1,7 @@
 <div data-id='{{data.post._id}}' class='post-container'>
-
   <form id="update-post">
     <input name="post[title]" type="text" placeholder="Post Title">
-    <textarea name="post[content]" placeholder="Comment Body" rows="5" cols="32"></textarea>
+    <textarea name="post[content]" placeholder="Post Body" rows="5" cols="32"></textarea>
     <button class="btn">Update post</button>
   </form>
   <h1>{{ data.post.title }}</h1>
@@ -17,9 +16,12 @@
   {{#each data.post.comments as |comment|}}
   <div data-id='{{comment._id}}' data-author='{{comment.author}}' class="comment-container">
     {{comment.content}}
+    <form class="update-comment">
+      <textarea name="comment[content]" placeholder="Comment Body" rows="5" cols="32"></textarea>
+      <button class="btn">Update comment</button>
+    </form>
   </div>
   {{else}}
   No comments yet
   {{/each}}
-
 </div>
