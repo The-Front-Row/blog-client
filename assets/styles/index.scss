@@ -32,6 +32,14 @@ body {
 .post-author {
 }
 
+.post-container {
+  width: 800px;
+  min-height: 240px;
+  border-radius: 8px;
+  background: white;
+  padding: 24px;
+}
+
 .btn {
   border-radius: 3px;
   border-color: lightblue;
