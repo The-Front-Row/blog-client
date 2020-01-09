@@ -10,3 +10,25 @@
   border-radius: 3px;
   border-color: lightblue;
 }
+
+#back-button {
+  cursor: pointer;
+}
+
+nav {
+  display: flex;
+  width: 100vw;
+  padding: 0 120px;
+  height: 60px;
+  background: white;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+  position: fixed;
+}
+
+#to-signup {
+  margin-left: auto;
+}
+
+#content {
+  padding-top: 100px;
+}
