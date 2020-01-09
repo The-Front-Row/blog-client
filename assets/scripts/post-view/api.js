@@ -30,6 +30,16 @@ const updatePost = (id, formData) => {
   })
 }
 
+const deletePost = id => {
+  return $.ajax({
+    url: config.apiUrl + '/posts/' + id,
+    method: 'DELETE',
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    }
+  })
+}
+
 const updateComment = (id, formData) => {
   return $.ajax({
     url: config.apiUrl + '/comments/' + id,
@@ -42,6 +52,7 @@ const updateComment = (id, formData) => {
 }
 
 module.exports = {
+  deletePost,
   getPost,
   addComment,
   updatePost,
