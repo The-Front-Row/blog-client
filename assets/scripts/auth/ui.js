@@ -53,6 +53,7 @@ const onSignoutSuccess = responseData => {
   onSuccess('signed out')
   $('.before-auth').show()
   $('.after-auth').hide()
+  navUi.loadNavPublic()
 }
 
 const onSignoutFailure = () => {
