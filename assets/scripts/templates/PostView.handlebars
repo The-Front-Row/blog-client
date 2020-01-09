@@ -1,5 +1,5 @@
-<!-- <h1>Post View Component</h1> -->
 <div data-id='{{data.post._id}}' class='post-container'>
+
   <form id="update-post">
     <input name="post[title]" type="text" placeholder="Post Title">
     <textarea name="post[content]" placeholder="Comment Body" rows="5" cols="32"></textarea>
@@ -14,21 +14,12 @@
     <textarea name="comment[content]" placeholder="Comment Body" id="new-comment-body" rows="5" cols="32"></textarea>
     <button class="btn">Create new comment</button>
   </form>
-  <div class="comment">
-    I am comment 1
+  {{#each data.post.comments as |comment|}}
+  <div data-id='{{comment._id}}' data-author='{{comment.author}}' class="comment-container">
+    {{comment.content}}
   </div>
-  <div class="comment">
-    I am comment 2
-  </div>
-  <div class="comment">
-    I am comment 3
-  </div>
-  <div class="comment">
-    I am comment 4
-  </div>
-
-  <div class="comment">
-    I am comment 5
-  </div>
+  {{else}}
+  No comments yet
+  {{/each}}
 
 </div>

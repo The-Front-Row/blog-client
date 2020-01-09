@@ -3,9 +3,11 @@ const ui = require('./ui')
 const getFormFields = require('../../../lib/get-form-fields.js')
 
 const onClickPost = event => {
+  // grab the post id
   const id = $(event.target)
     .closest('div.post')
     .data('id')
+  // GET that specific post and load it's view page
   api
     .getPost(id)
     .then(res => ui.loadPostView(res))
@@ -32,14 +34,22 @@ const onUpdatePost = event => {
 
 const onCreateComment = e => {
   e.preventDefault()
-  console.log('Form was clicked')
-  // TODO: uncomment the below when create comment form is ready to be tested.
-  // const form = e.target;
-  // const createCommentData = getFormFields(form);
-  // api
-  //   .add(createCommentData)
-  //   .then(ui.addCommentSuccess)
-  //   .catch();
+  // grab the form data
+  const form = e.target
+  const createCommentData = getFormFields(form)
+  // grab the post id
+  const id = $(event.target)
+    .closest('div.post-container')
+    .data('id')
+  // add the post id to the form data
+  createCommentData.comment.post = id
+  // send it to the API and then reload the post page. If extra time,
+  // see if we can refresh just the comments section
+  api
+    .addComment(createCommentData)
+    .then(() => api.getPost(id))
+    .then(res => ui.loadPostView(res))
+    .catch(err => console.log(err))
 }
 
 const addHandlers = event => {
