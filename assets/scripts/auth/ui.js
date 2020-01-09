@@ -1,6 +1,7 @@
 'use strict'
 const store = require('../store')
 const navUi = require('../nav/ui.js')
+const commonEvents = require('../common/events.js')
 
 const onSuccess = message => {
   $('#message')
@@ -54,6 +55,7 @@ const onSignoutSuccess = responseData => {
   $('.before-auth').show()
   $('.after-auth').hide()
   navUi.loadNavPublic()
+  commonEvents.init()
 }
 
 const onSignoutFailure = () => {
