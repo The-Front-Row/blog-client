@@ -65,10 +65,12 @@ const addHandlers = event => {
   $('#content').on('submit', '#signin', onSignIn)
   $('#content').on('submit', '#changepw', onChangePassword)
   $('#content').on('submit', '#signout', onSignOut)
+  $('#nav').on('click', '#signout', onSignOut)
   $('#content').on('submit', '#autologin', autologin)
   // ^^for development purposes, remove later
 }
 
 module.exports = {
-  addHandlers
+  addHandlers,
+  onSignOut
 }
