@@ -11,7 +11,7 @@ const onLoadUserHome = () => {
   api
     .getUserHome()
     .then(data => ui.loadHome(data))
-    .catch(err => console.warn(err))
+    .catch(() => ui.notification('unable to load home', 'failure'))
 }
 
 module.exports = {

@@ -1,6 +1,7 @@
 const api = require('./api')
 const getFormFields = require('../../../lib/get-form-fields')
 const ui = require('./ui')
+const commonUi = require('../common/ui')
 
 const onClickPostForm = () => {
   ui.loadPostForm()
@@ -13,7 +14,7 @@ const onCreatePost = event => {
   api
     .add(createPostData)
     .then(ui.addPostSuccess)
-    .catch(() => console.log('oh SHYT'))
+    .catch(() => commonUi.notification('Unable to update comment', 'failure'))
 }
 
 const addHandlers = event => {
