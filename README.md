@@ -43,7 +43,7 @@ _Resource Functionality_
 
 ### Unsolved Problems
 
-- We still would like to _PLACEHOLDER_
+- We still would like to finish a few things. Hopefully we would like to enable users to view all of their own posts and comments at the click of a button. On top of that, the forms could do with a bit of cleaning and potentially we would enable users to see the usernames of other members. Additionally we would like to branch into mobile accessibilty.
 
 ## Images
 
