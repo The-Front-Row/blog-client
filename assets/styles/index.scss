@@ -52,6 +52,11 @@ body {
   flex-direction: column;
   max-width: 600px;
 }
+
+.form-user {
+  width: 300px;
+}
+
 .form-button {
   max-width: 200px;
 }
@@ -84,9 +89,6 @@ nav {
   padding: 10px 120px;
   background: white;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
-}
-
-#to-signup {
 }
 
 #content {
