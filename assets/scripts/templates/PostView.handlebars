@@ -3,8 +3,8 @@
   <button id="delete-btn" class='btn btn-danger'>Delete this post</button>
   {{/if}}
 
-  <h1>{{ data.post.title }}</h1>
-  <p>{{ data.post.content }}</p>
+  <h1 class='post-view-title'>{{ data.post.title }}</h1>
+  <p class='post-view-text'>{{ data.post.content }}</p>
   {{#if data.post.editable}}
   <h3>Update your post</h3>
   <form class='form-container' id="update-post">
@@ -15,7 +15,7 @@
   <br />
   {{/if}}
   {{!-- TODO: refactor opportunity - make Comments and CommentsList its own components/handlebars  --}}
-  <h1>Comments</h1>
+  <h1 class='comments-title'>Comments</h1>
   {{#if data.post.signedIn}}
   <form class='form-container' id="new-comment">
     <textarea name="comment[content]" placeholder="Comment Body" id="new-comment-body" rows="5" cols="32"
