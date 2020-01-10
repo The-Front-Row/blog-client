@@ -9,6 +9,10 @@ const onClickPost = event => {
   const id = $(event.target)
     .closest('div.post')
     .data('id')
+
+  // scroll to the top of the screen
+  window.scrollTo(0, 0)
+
   // GET that specific post and load it's view page
   api
     .getPost(id)
@@ -50,7 +54,12 @@ const onCreateComment = e => {
   api
     .addComment(createCommentData)
     .then(() => api.getPost(id))
-    .then(res => ui.loadPostView(res))
+    .then(res => {
+      ui.loadPostView(res)
+      window.setTimeout(() => {
+        $('#message').html('Successfully added comment')
+      }, 200)
+    })
     .catch(() => {
       window.setTimeout(() => {
         $('#message').html('Unable to add comment, are you signed in?')
