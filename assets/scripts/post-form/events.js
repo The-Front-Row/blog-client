@@ -4,13 +4,6 @@ const ui = require('./ui')
 
 const onClickPostForm = () => {
   ui.loadPostForm()
-  // TODO: placeholder for GETing a single post
-  // api
-  //   .getUserHome()
-  //   .then(ui.getUserHomeSuccess)
-  //   .catch((err) =>
-  //     console.warn(err)
-  //   );
 }
 
 const onCreatePost = event => {

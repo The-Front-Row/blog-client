@@ -1,7 +1,6 @@
 @import '~bootstrap/scss/bootstrap';
 body {
   background: #eff0f5;
-  // max-width: 960px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -44,12 +43,39 @@ body {
   padding: 24px;
 }
 
+.comment-container {
+  padding-top: 24px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+}
+
+.form-user {
+  width: 300px;
+}
+
+.form-button {
+  max-width: 200px;
+}
+
+.comment-message {
+  font-weight: bold;
+}
+
 .btn {
   border-radius: 3px;
   border-color: lightblue;
 }
+
 .btn.btn-nav-secondary {
   border-color: white;
+}
+
+#delete-btn {
+  float: right;
 }
 
 #back-button {
@@ -63,9 +89,6 @@ nav {
   padding: 10px 120px;
   background: white;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
-}
-
-#to-signup {
 }
 
 #content {

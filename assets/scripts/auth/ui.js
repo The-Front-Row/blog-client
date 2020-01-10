@@ -21,30 +21,36 @@ const onSignInSuccess = responseData => {
   navUi.loadNavAuth()
   commonEvents.onLoadUserHome()
   window.setTimeout(() => {
-    $('#message').html('Successfully signed in')
-  }, 500)
+    commonUi.notification('Successfully signed in', 'success')
+  }, 200)
 }
 
 const onSignInFailure = () => {
-  onFailure('something goofed')
+  $('form').trigger('reset')
+  commonUi.notification('Error signing in', 'failure')
 }
 
 const onChangePasswordSuccess = () => {
+  $('form').trigger('reset')
   commonEvents.onLoadUserHome()
-  commonUi.notification('Successfully changed password', 'success')
+  window.setTimeout(() => {
+    commonUi.notification('Successfully changed password', 'success')
+  }, 200)
 }
 
 const onChangePasswordFailure = () => {
+  $('form').trigger('reset')
   commonUi.notification('Error changing password', 'failure')
 }
 
 const onSignoutSuccess = responseData => {
-  store.user = store
-  onSuccess('signed out')
-  $('.before-auth').show()
-  $('.after-auth').hide()
-  navUi.loadNavPublic()
+  // clear the store
+  store.user = null
+  // load the initial state again notify the user
   commonEvents.init()
+  window.setTimeout(() => {
+    commonUi.notification('Successfully signed out', 'success')
+  }, 200)
 }
 
 const onSignoutFailure = () => {
