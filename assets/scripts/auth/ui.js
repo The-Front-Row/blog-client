@@ -44,8 +44,9 @@ const onChangePasswordFailure = () => {
 }
 
 const onSignoutSuccess = responseData => {
-  store.user = store
-  navUi.loadNavPublic()
+  // clear the store
+  store.user = null
+  // load the initial state again notify the user
   commonEvents.init()
   window.setTimeout(() => {
     commonUi.notification('Successfully signed out', 'success')
