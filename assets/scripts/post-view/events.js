@@ -56,8 +56,12 @@ const onCreateComment = e => {
     .then(() => api.getPost(id))
     .then(res => {
       ui.loadPostView(res)
+
+      // scroll to the top of the screen
+      window.scrollTo(0, 0)
+
       window.setTimeout(() => {
-        $('#message').html('Successfully added comment')
+        commonUi.notification('Added comment successfully', 'success')
       }, 200)
     })
     .catch(() => {
