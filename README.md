@@ -49,4 +49,4 @@ _Resource Functionality_
 
 #### Wireframe:
 
-![wireframe](https://imgur.com/8qk8qoF)
+![wireframe](https://i.imgur.com/YSuX3Xa.png)
