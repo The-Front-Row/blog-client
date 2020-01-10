@@ -35,7 +35,7 @@ const onUpdatePost = event => {
     // GET the post again and load it onto the screen, so user sees the newly updated title/post
     .then(() => api.getPost(id))
     .then(res => ui.loadPostView(res))
-    .catch(err => console.warn(err))
+    .catch(() => commonUi.notification('Unable to update post', 'failure'))
 }
 
 const onCreateComment = e => {
@@ -104,7 +104,7 @@ const onDeletePost = event => {
   api
     .deletePost(postId)
     .then(() => commonEvents.onLoadUserHome())
-    .catch(err => console.log(error))
+    .catch(() => commonUi.notification('Unable to delete post', 'failure'))
 }
 
 const onDeleteComment = event => {
@@ -120,7 +120,7 @@ const onDeleteComment = event => {
     .deleteComment(postId, commentId)
     .then(() => api.getPost(postId))
     .then(res => ui.loadPostView(res))
-    .catch(err => console.warn(err))
+    .catch(() => commonUi.notification('Unable to delete comment'))
 }
 
 const addHandlers = event => {
