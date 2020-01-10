@@ -2,6 +2,7 @@ const api = require('./api')
 const ui = require('./ui')
 const getFormFields = require('../../../lib/get-form-fields.js')
 const commonEvents = require('../common/events')
+const commonUi = require('../common/ui')
 
 const onClickPost = event => {
   // grab the post id
@@ -12,7 +13,7 @@ const onClickPost = event => {
   api
     .getPost(id)
     .then(res => ui.loadPostView(res))
-    .catch(err => console.warn(err))
+    .catch(() => commonUi.notification('Unable to add post'))
 }
 
 const onUpdatePost = event => {
@@ -50,7 +51,11 @@ const onCreateComment = e => {
     .addComment(createCommentData)
     .then(() => api.getPost(id))
     .then(res => ui.loadPostView(res))
-    .catch(err => console.log(err))
+    .catch(() => {
+      window.setTimeout(() => {
+        $('#message').html('Unable to add comment, are you signed in?')
+      }, 200)
+    })
 }
 
 const onUpdateComment = e => {
@@ -75,7 +80,7 @@ const onUpdateComment = e => {
     .updateComment(postId, commentId, updateCommentData)
     .then(() => api.getPost(postId))
     .then(res => ui.loadPostView(res))
-    .catch(err => console.log(err))
+    .catch(() => commonUi.notification('Unable to update comment'))
 }
 
 const onDeletePost = event => {

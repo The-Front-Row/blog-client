@@ -13,11 +13,12 @@
   {{!-- TODO: refactor opportunity - make Comments and CommentsList its own components/handlebars  --}}
   <h1>Comments</h1>
   {{#if data.post.signedIn}}
-  <form id="new-comment">
+  <form class='form-container' id="new-comment">
     <textarea name="comment[content]" placeholder="Comment Body" id="new-comment-body" rows="5" cols="32"
       required></textarea>
-    <button class="btn">Create new comment</button>
+    <button class="btn form-button">Create new comment</button>
   </form>
+  <div class='comment-message' id='message'></div>
   {{/if}}
   {{#each data.post.comments as |comment|}}
   <div data-id='{{comment._id}}' data-author='{{comment.author}}' class="comment-container">
@@ -28,7 +29,7 @@
       <textarea name="comment[content]" placeholder="Comment Body" rows="5" cols="32" required></textarea>
       <button class="btn">Update comment</button>
     </form>
-    <button class="delete-comment">Delete this comment</button>
+    <button class="delete-comment btn btn-danger">Delete this comment</button>
     {{/if}}
   </div>
   {{else}}
